@@ -1,0 +1,14 @@
+[target.'cfg(target_arch="x86",target_os="windows")']
+rustflags=["-ogmsv_writingrs_win32.dll"]
+
+[target.'cfg(target_arch="x86_64",target_os="windows")']
+rustflags=["-ogmsv_writingrs_win64.dll"]
+
+[target.'cfg(target_arch="x86",target_os="linux")']
+rustflags=["-ogmsv_writingrs_linux.dll"]
+
+[target.'cfg(target_arch="x86_64",target_os="linux")']
+rustflags=["-ogmsv_writingrs_linux64.dll"]
+
+[target.'cfg(target_os="macos")']
+rustflags=["-ogmsv_writingrs_osx.dll"]

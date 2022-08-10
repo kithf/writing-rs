@@ -1,0 +1,36 @@
+[package]
+name = "writingrs"
+version = "0.1.0"
+edition = "2021"
+authors = ["kithf <code-kithf@proton.me>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = 3
+
+[profile.dev]
+incremental = true
+strip = false
+lto = false
+opt-level = 0
+
+[profile.dev.package."*"]
+opt-level = 0
+incremental = true
+
+[profile.dev.build-override]
+opt-level = 0
+incremental = true
+
+[dependencies]
+gmod = { git = "https://github.com/WilliamVenner/gmod-rs", branch = "master" }
+thiserror = "1"
+magic_static = "3"
+lz4_flex = { version = "0.9", default-features = false, features = ["checked-decode"] }
+ammonia = "3"
+pulldown-cmark = { version = "0.9", default-features = false }
